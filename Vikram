@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise 🎂</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3, #8e44ad);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 500px;
+        padding: 35px 20px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+    }
+
+    h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 28px;
+        margin: 10px 0;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 30px;
+        background: #fff;
+        color: #e84393;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    #surprise {
+        display: none;
+        margin-top: 25px;
+        animation: fadeIn 1s ease;
+    }
+
+    .heart {
+        position: fixed;
+        bottom: -20px;
+        font-size: 25px;
+        animation: float 5s linear forwards;
+    }
+
+    @keyframes float {
+        from {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.7);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div style="font-size:70px;">🎂</div>
+
+    <h1>Happy Birthday!</h1>
+
+    <h2>🎉 Chnadu 🎉</h2>
+
+    <p>
+        Aaj ka din bahut special hai,
+        kyunki aaj ek bahut hi special person ka birthday hai! 💖
+    </p>
+
+    <button onclick="showSurprise()">
+        🎁 Open Your Surprise
+    </button>
+
+    <div id="surprise">
+        <h2>💖 Surprise! 💖</h2>
+
+        <p>
+            May your life always be filled with
+            happiness, love, success and lots of beautiful memories. ✨
+        </p>
+
+        <p>
+            🎈 Keep Smiling 😊<br>
+            🎂 Keep Celebrating 🎉<br>
+            💕 Keep Being Amazing!
+        </p>
+
+        <div style="font-size:50px;">
+            🎁 🎈 🥳 🎂 💖
+        </div>
+    </div>
+
+</div>
+
+<script>
+function showSurprise() {
+    document.getElementById("surprise").style.display = "block";
+
+    // Floating hearts
+    for (let i = 0; i < 25; i++) {
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML = ["❤️","💖","💕","💗","🎈","✨"][Math.floor(Math.random()*6)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+}
+</script>
+
+</body>
+</html>
